@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ControlBola : MonoBehaviour
 {
-    public Transform CamaraPrincipal;
-    public Rigidbody rb;
+   
+    private Rigidbody rb;
 
     //Variables para apuntar y limitar
     public float velocidadDeApuntado = 5f;
@@ -15,20 +15,26 @@ public class ControlBola : MonoBehaviour
 
     public float fuerzaDeLanzamiento = 1000f;
 
+
+    public CameraFollow cameraFollow;
+    public ScoreManager scoreManager;
+
     private bool haSidoLanzada = false;
     //if aninado, controlan otros 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        //elgetcommponent hace la referencia a lo que se busca
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //Expresion:mientras que haSidoLanzada sea falso puedes disparar
-        if (haSidoLanzada==false)
+        if (!haSidoLanzada)
         {
             Apuntar();
             if (Input.GetKeyDown(KeyCode.Space))
@@ -56,10 +62,26 @@ public class ControlBola : MonoBehaviour
     {
         haSidoLanzada = true;
         rb.AddForce(Vector3.forward * fuerzaDeLanzamiento);
-        if (CamaraPrincipal != null)
-        {
-            CamaraPrincipal.SetParent(transform);
-        }
-    }
 
-}//Bienvenido a la entrada al infierno
+
+        if (cameraFollow != null) cameraFollow.Iniciarseguimiento();
+                
+    }
+    //Utilizo OnCollisionEnter cuando quiero que algo suceda al momenb o de contactar con otro objeto
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Pin"))
+        {
+            if (cameraFollow != null) cameraFollow.DetenerSeguimiento();
+
+            if (scoreManager != null) Invoke("CalcularPuntaje", 0f); //la f es el retardo que aparece 0f es instantaneo y 2f lo que tarda e aparecer el score
+        }
+
+
+    }
+    void CalcularPuntaje()
+    {
+        scoreManager.CalcularPuntaje();
+    }
+           
+    }//Bienvenido a la entrada al infierno

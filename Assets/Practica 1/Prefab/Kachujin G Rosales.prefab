@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.2100003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.7300005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
         type: 3}
@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kachujin G Rosales
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pin
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
         type: 3}
       propertyPath: m_Controller
@@ -85,6 +90,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6290529272250169804}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f10ec54c6d4e5f84db9b7c79c0757bc5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7680551973802022671}
   m_SourcePrefab: {fileID: 100100000, guid: f10ec54c6d4e5f84db9b7c79c0757bc5, type: 3}
 --- !u!1 &5025211893327155834 stripped
 GameObject:
@@ -142,3 +151,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.96, z: -0.01}
+--- !u!114 &7680551973802022671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025211893327155834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcac074b52b97547a7806c9322c2ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
